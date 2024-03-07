@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>HW2</title>
+    
+</head>
+<body>
+    
+
+    <script>
+let age = prompt("Введите ваш возраст:");
+if (age >= 0 && age <= 2) {
+  alert("Вы являетесь ребенком");
+} else if (age >= 12 && age <= 18) {
+  alert("Вы являетесь подростком");
+} else if (age > 18 && age < 60) {
+  alert("Вы являетесь взрослым");
+} else if (age >= 60) {
+  alert("Вы являетесь пенсионером");
+} else {
+  alert("Вы ввели некорректный возраст");
+}
+
+
+
+var number = parseInt(prompt("Введите число от 0 до 9:"));
+if (number >= 0 && number <= 9) {
+    var specialCharacter;
+    switch (number) {
+        case 0:
+            specialCharacter = ")";
+            break;
+        case 1:
+            specialCharacter = "!";
+            break;
+        case 2:
+            specialCharacter = "@";
+            break;
+        case 3:
+            specialCharacter = "#";
+            break;
+        case 4:
+            specialCharacter = "$";
+            break;
+        case 5:
+            specialCharacter = "%";
+            break;
+        case 6:
+            specialCharacter = "^";
+            break;
+        case 7:
+            specialCharacter = "&";
+            break;
+        case 8:
+            specialCharacter = "*";
+            break;
+        case 9:
+            specialCharacter = "(";
+            break;
+    }
+
+    alert("Спецсимвол для числа " + number + " это " + specialCharacter);
+} else {
+    alert("Введено некорректное число");
+}
+
+
+
+var number = prompt("Введите трехзначное число:");
+var firstDigit = number % 10; 
+var secondDigit = Math.floor(number / 10) % 10; 
+var thirdDigit = Math.floor(number / 100) % 10;
+if (firstDigit === secondDigit || firstDigit === thirdDigit || secondDigit === thirdDigit) {
+    alert("В числе есть одинаковые цифры.");
+} else {
+    alert("В числе нет одинаковых цифр.");
+}
+
+
+
+let year = prompt("Введите год:");
+
+if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+  alert(year + " год является високосным.");
+} else {
+  alert(year + " год не является високосным.");
+}
+
+
+/*
+const number = prompt("Введите пятизначное число:");
+if (number.length !== 5) {
+  alert("Вы ввели непятизначное число.");
+} else {
+   const reverseNumber = number.split("").reverse().join("");
+  if (number === reverseNumber) {
+    alert("Число является палиндромом.");
+  } else {
+    alert("Число не является палиндромом.");
+  }
+}
+
+
+function convertCurrency(amount, currency) {
+  let convertedAmount;
+  switch (currency) {
+    case 'EUR':
+      convertedAmount = amount * 0.89; 
+      break;
+    case 'RUB':
+      convertedAmount = amount * 90.2; 
+      break;
+    case 'CNY':
+      convertedAmount = amount * 7.12; 
+      break;
+    default:
+      alert('Выбрана недопустимая валюта');
+      return;
+  }
+
+  return convertedAmount;
+}
+
+const usdAmount = parseFloat(prompt('Введите количество USD для конвертации:'));
+const currencyToConvert = prompt('В какую валюту вы хотите конвертировать? (EUR, RUB, CNY)').toUpperCase();
+
+const convertedAmount = convertCurrency(usdAmount, currencyToConvert);
+alert(`Результат конвертации: ${convertedAmount} ${currencyToConvert}`);
+*/
+
+
+let amount = prompt("Введите сумму покупки:");
+amount = parseInt(amount);
+let discount = 0;
+if (amount >= 2000 && amount < 3000) {
+  discount = 0.03;
+} else if (amount >= 3000 && amount < 5000) {
+  discount = 0.05;
+} else if (amount >= 5000) {
+  discount = 0.07;
+}
+let totalAmount = amount - (amount * discount);
+alert("Сумма к оплате со скидкой: " + totalAmount);
+
+
+const длинаОкружности = prompt("Введите длину окружности:");
+const периметрКвадрата = prompt("Введите периметр квадрата:");
+
+const радиусОкружности = длинаОкружности / (2 * Math.PI);
+
+const сторонаКвадрата = периметрКвадрата / 4;
+
+if (радиусОкружности <= сторонаКвадрата / 2) {
+  alert("Окружность может поместиться в квадрат.");
+} else {
+  alert("Окружность не может поместиться в квадрат.");
+}
+
+
+
+var questions = [
+  {
+    question: 'Сколько цветов в радуге?',
+    answers: ['6', '7', '8'],
+    correctAnswerIndex: 1  },
+  {
+    question: 'Какая планета является самой большой в Солнечной системе?',
+    answers: ['Меркурий', 'Венера', 'Юпитер'],
+    correctAnswerIndex: 2
+  },
+  {
+    question: 'Кто написал произведение "Война и мир"?',
+    answers: ['Фёдор Достоевский', 'Лев Толстой', 'Александр Пушкин'],
+    correctAnswerIndex: 1
+  }
+];
+
+var score = 0; 
+
+for (var i = 0; i < questions.length; i++) {
+  var userAnswer = parseInt(prompt(questions[i].question + '\n' + 
+    '1. ' + questions[i].answers[0] + '\n' +
+    '2. ' + questions[i].answers[1] + '\n' +
+    '3. ' + questions[i].answers[2]));
+
+    if (userAnswer === questions[i].correctAnswerIndex + 1) {
+    score += 2; 
+  }
+}
+
+alert('Вы набрали ' + score + ' балл(ов).');
+
+/*
+
+var day = parseInt(prompt("Введите день:"));
+var month = parseInt(prompt("Введите месяц (числом):"));
+var year = parseInt(prompt("Введите год:"));
+
+var isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+var lastDayOfMonth = {
+  1: 31,
+  2: isLeapYear ? 29 : 28,
+  3: 31,
+  4: 30,
+  5: 31,
+  6: 30,
+  7: 31,
+  8: 31,
+  9: 30,
+  10: 31,
+  11: 30,
+  12: 31
+};
+
+if (day < 1 || day > lastDayOfMonth[month] || month < 1 || month > 12) {
+  alert("Введена некорректная дата!");
+} else {
+  
+  day++;
+
+    if (day > lastDayOfMonth[month]) {
+    day = 1;
+    month++;
+
+    if (month > 12) {
+      month = 1;
+      year++;
+    }
+  }
+
+ alert("Следующая дата: " + day + "." + month + "." + year);
+}
+*/
+</script>
+</body>
+</html>
