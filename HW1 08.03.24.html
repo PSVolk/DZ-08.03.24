@@ -28,14 +28,14 @@ alert("Периметр квадрата: " + perimeter);
 
 let radius = prompt("Введите радиус окружности:");
 radius = parseFloat(radius);
-let area = Math.PI * Math.pow(radius, 2);
-alert("Площадь окружности:", area);
+const area = Math.floor(Math.PI * Math.pow(radius, 2));
+alert("Площадь окружности:" + area);
 
 
 let distance = parseFloat(prompt("Введите расстояние между городами в км:"));
 let time = parseFloat(prompt("Введите количество часов, за которое вы хотите добраться:"));
 let speed = distance / time;
-alert("Вам необходимо двигаться со скоростью" + speed + "км/ч, чтобы успеть вовремя. ");
+alert("Вам необходимо двигаться со скоростью " + speed + "км/ч, чтобы успеть вовремя. ");
 
 
 
@@ -67,17 +67,18 @@ alert("Сдача у вас будет " + change + " рублей");
 const number = prompt("Введите трехзначное число:");
 if (number.length !== 3) {
   alert("Введено некорректное число!");
-} else {
+} 
+else {
    const reverseNumber = parseInt(number.toString().split("").reverse().join(""));
    alert("Результат:" + reverseNumber);
 }
 
 
-/*
-const number = parseInt(prompt("Введите целое число:"));
-const isEven = (number % 2 === 0);
-alert(isEven ? "Число четное" : "Число нечетное");
-*/
+
+let integer = prompt("Введите целое число:")
+        const isEven = integer % 2 === 0 ? "Число четное" : "Число нечетное";
+        alert(isEven)
+
  </script>
 </body>
 </html>
